@@ -128,3 +128,5 @@ logo.classList.toggle('c', 'j');
 logo.classList.contains('c', 'j');
 
 // Don't use
+
+// logo.clasName = 'Jonas';
