@@ -89,6 +89,34 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
+///////////////////////////////////////
+// Tabbled component
+
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+  // console.log(clicked);
+
+  //Gauard clause
+  if (!clicked) return;
+
+  // Remove Active classList
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // Active Tab
+  clicked.classList.add('operations__tab--active');
+
+  //Activate content Area
+  // console.log('clicked.dataset.tab');
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -230,33 +258,33 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
 // 190. DOM Traversing
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-//going downwards: child
+// //going downwards: child
 
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
-h1.firstElementChild.style.color='red';
-h1.lastElementChild.style.color='purple';
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children);
+// h1.firstElementChild.style.color = 'red';
+// h1.lastElementChild.style.color = 'purple';
 
-//going upwards: parents
-console.log(h1.parentNode);
+// //going upwards: parents
+// console.log(h1.parentNode);
 
-h1.closest('.header').style.background= "var(--gradient-secondary)"
+// h1.closest('.header').style.background = 'var(--gradient-secondary)';
 
-h1.closest('h1').style.background= "var(--gradient-primary"
+// h1.closest('h1').style.background = 'var(--gradient-primary';
 
-// Going sideways : sibling
+// // Going sideways : sibling
 
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
 
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
 
-console.log(h1.parentElement.children);
+// console.log(h1.parentElement.children);
 
-[...h1.previousElement.childen].forEach(function(el){
-  if (el !== h1 ) el.style.transform = 'scale(0.5)';
-})
+// // [...h1.previousElement.childen].forEach(function (el) {
+// //   if (el !== h1) el.style.transform = 'scale(0.5)';
+// // });
