@@ -33,6 +33,36 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// Lean More button
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  // console.log(s1coords);
+  // console.log(e.target.getBoundingClientRect());
+  console.log('current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  console.log(
+    'heigt/width viemport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  //...scrolling...
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageXOffset
+  // );
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageXOffset,
+  //   behavior: 'smooth',
+  // });
+
+  section1.scrollIntoView({behavior: 'smooth'});
+});
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,26 +100,27 @@ message.innerHTML =
 header.before(message);
 // header.after(message);
 
-//....................Supprimer éléments.................... 
+//....................Supprimer éléments....................
 
 document.querySelector('.btn--close-cookie');
-addEventListener('click', function(){
+addEventListener('click', function () {
   // message.remove();
   message.parentElement.removeChild(message);
-})
+});
 
 // ....................Styles ....................
 
-message.style.backgroundColor='#37383b';
-message.style.width='120%';
+message.style.backgroundColor = '#37383b';
+message.style.width = '120%';
 
 // console.log(getComputedStyle(message).color);  //connaitre la valeur de l'attribut CSS
 // console.log(getComputedStyle(message).height);
 
-message.style.height = Number.parseFloat(getComputedStyle(message).height,10)+30+'px'
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px';
 
 // Dans le ::ROOT
-document.documentElement.style.setProperty('--color-primary','orangered');
+document.documentElement.style.setProperty('--color-primary', 'orangered');
 
 // ....................Attibuts  ....................
 
@@ -98,14 +129,14 @@ console.log(logo.alt);
 console.log(logo.src);
 console.log(logo.className);
 
-logo.alt = 'Beautiful minimalist logo'
+logo.alt = 'Beautiful minimalist logo';
 
 // Non standard
 console.log(logo.designer);
 console.log(logo.getAttribute('designer'));
-logo.getAttribute('compagny', 'Bankinst')
+logo.getAttribute('compagny', 'Bankinst');
 
-console.log(logo.src)
+console.log(logo.src);
 console.log(logo.getAttribute('src'));
 
 const link = document.querySelector('.twitter-link');
@@ -118,7 +149,7 @@ console.log(logo.dataset.versionNumber); //3.0.
 
 //classes
 
-logo.classList.add()
+logo.classList.add();
 
 // Classes
 
